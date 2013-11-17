@@ -24,6 +24,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		
 	}
 
 	@Override
@@ -34,24 +36,35 @@ public class MainActivity extends Activity {
 	}
 
 	
-	  public void onClickSetting(View view){
+	  public void onClickRegistro(View view){
           Intent intent = new Intent(this,PrimeraActivity.class);
           
           EditText nameEditText = (EditText) findViewById(R.id.editText1);
           String name = nameEditText.getText().toString();
-          EditText surnameEditText = (EditText) findViewById(R.id.editText2);
+          EditText surnameEditText = (EditText) findViewById(R.id.ediText2);
           String surname = surnameEditText.getText().toString();
-          EditText fechadenacimientoEditText = (EditText) findViewById(R.id.editText3);
+          EditText fechadenacimientoEditText = (EditText) findViewById(R.id.ediText3);
           String fechadenacimiento = fechadenacimientoEditText.getText().toString();
-          EditText userEditText = (EditText) findViewById(R.id.editText4);
+          EditText userEditText = (EditText) findViewById(R.id.ediText4);
           String user = userEditText.getText().toString();
-          EditText emailEditText = (EditText) findViewById(R.id.emailField);
+          EditText emailEditText = (EditText) findViewById(R.id.ediText5);
           String email = emailEditText.getText().toString();
-          EditText passwordEditText = (EditText) findViewById(R.id.editText5);
+          EditText passwordEditText = (EditText) findViewById(R.id.ediText6);
           String password = passwordEditText.getText().toString(); 
           
                
           SharedPreferences sharedPref = getSharedPreferences("preferences",Context.MODE_PRIVATE);
+          
+          Boolean b = sharedPref.getBoolean("is-Registred",false) ;        
+          if(b){
+                  onClickLogin(view);                       
+          }
+          else{
+                  
+          	onClickRegistro(view);
+          }
+
+          
           
           SharedPreferences.Editor editor = sharedPref.edit();
           
@@ -66,6 +79,10 @@ public class MainActivity extends Activity {
           startActivity(intent);
          
 
+}
+	  public void onClickLogin(View view){
+          Intent intent = new Intent(this,PrimeraActivity.class);
+          startActivity(intent);
 
 }
 }

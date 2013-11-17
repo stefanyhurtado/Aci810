@@ -30,6 +30,10 @@
             android:name="com.example.catedra2.SegundaActivity"
             android:label="@string/title_activity_segunda" >
         </activity>
+        <activity
+            android:name="com.example.catedra2.TerceraActivity"
+            android:label="@string/title_activity_tercera" >
+        </activity>
     </application>
 
 </manifest>
